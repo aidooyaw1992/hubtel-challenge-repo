@@ -7,7 +7,7 @@ class CustomDateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(maxWidth: 80),
+      constraints: const BoxConstraints(minWidth: 80),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
       child: Text(
         date,

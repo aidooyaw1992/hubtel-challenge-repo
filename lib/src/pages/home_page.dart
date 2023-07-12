@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hubtel_coding_challenge/bloc/transaction_cubit.dart';
+import 'package:hubtel_coding_challenge/components/custom_date_widget.dart';
 import 'package:hubtel_coding_challenge/components/custom_list_tile.dart';
 import 'package:hubtel_coding_challenge/components/search_bar.dart';
 import 'package:hubtel_coding_challenge/models/transaction_model.dart';
@@ -64,9 +65,12 @@ class _HomeViewState extends State<HomeView> {
                           final TransactionModel item = list[index];
                           return Column(
                               mainAxisSize: MainAxisSize.min,
-                              children: item.info
-                                  .map((e) => CustomListTile(data: e))
-                                  .toList());
+                              children: [
+                                CustomDateWidget(date: item.date),
+                                ...item.info
+                                    .map((e) => CustomListTile(data: e))
+                                    .toList(),
+                              ]);
                         },
                       ),
                     );

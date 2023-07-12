@@ -22,11 +22,7 @@ class CustomListTile extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 8),
-          Row(
-            children: [
-              Text(data.time),
-            ],
-          ),
+          Row(children: [Text(data.time)]),
           const SizedBox(height: 4),
           Container(
             color: Colors.red,
