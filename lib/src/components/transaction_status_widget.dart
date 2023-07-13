@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hubtel_coding_challenge/src/general_styles.dart';
 
 class TransactionStatusWidget extends StatelessWidget {
   final String status;
@@ -7,25 +9,32 @@ class TransactionStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 30,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-          color: status == "Failed" ? Colors.redAccent : Colors.green[200],
+          color: status == "Failed" ? GenColors.lightRed : GenColors.lime,
           borderRadius: BorderRadius.circular(30)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          status == "Failed"
-              ? const Icon(Icons.close_rounded)
-              : const Icon(
-                  Icons.verified_rounded,
-                  color: Colors.green,
-                ),
+          SizedBox(
+            height: 15,
+            width: 15,
+            child: status == "Failed"
+                ? SvgPicture.asset(GenAssetSvgImages.close)
+                : SvgPicture.asset(
+                    GenAssetSvgImages.success,
+                  ),
+          ),
+          // const Icon(
+          //     Icons.verified_rounded,
+          //     color: Colors.green,
+          //   ),
           const SizedBox(width: 4),
-          Text(
-            status,
-            style: TextStyle(
-                color: status == "Failed" ? Colors.red : Colors.green),
-          )
+          Text(status,
+              style: GenTextStyles.extraBold_10px.copyWith(
+                  color:
+                      status == "Failed" ? GenColors.crimson : GenColors.green))
         ],
       ),
     );

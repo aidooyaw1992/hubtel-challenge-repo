@@ -154,10 +154,8 @@ class _HomeViewState extends State<HomeView> {
               print("pressed");
             },
             child: Container(
-              // height: 120,
-              width: 200,
-              constraints: BoxConstraints(
-                  minHeight: 56, minWidth: 0.25 * deviceSize.width),
+              height: 60,
+              width: 158,
               decoration: BoxDecoration(
                   color: Colors.teal, borderRadius: BorderRadius.circular(10)),
               child: Row(

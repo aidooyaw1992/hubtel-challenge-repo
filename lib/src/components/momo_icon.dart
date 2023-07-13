@@ -6,6 +6,11 @@ class MomoIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(GenAssetImages.momo);
+    return Container(
+        height: 40,
+        width: 40,
+        decoration:
+            const BoxDecoration(color: Colors.amber, shape: BoxShape.circle),
+        child: Image.asset(GenAssetImages.momo));
   }
 }

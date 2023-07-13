@@ -13,7 +13,10 @@ class TransactionModel with _$TransactionModel {
 class HistoryInfo with _$HistoryInfo {
   const factory HistoryInfo({
     required final String status,
-    required final String name,
+    required final String firstName,
+    required final String paymentMode,
+    final String? bankName,
+    final String? secondName,
     required final String phone,
     required final String description,
     required final String type,

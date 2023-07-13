@@ -160,7 +160,10 @@ abstract class _TransactionModel implements TransactionModel {
 /// @nodoc
 mixin _$HistoryInfo {
   String get status => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get paymentMode => throw _privateConstructorUsedError;
+  String? get bankName => throw _privateConstructorUsedError;
+  String? get secondName => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
@@ -182,7 +185,10 @@ abstract class $HistoryInfoCopyWith<$Res> {
   @useResult
   $Res call(
       {String status,
-      String name,
+      String firstName,
+      String paymentMode,
+      String? bankName,
+      String? secondName,
       String phone,
       String description,
       String type,
@@ -206,7 +212,10 @@ class _$HistoryInfoCopyWithImpl<$Res, $Val extends HistoryInfo>
   @override
   $Res call({
     Object? status = null,
-    Object? name = null,
+    Object? firstName = null,
+    Object? paymentMode = null,
+    Object? bankName = freezed,
+    Object? secondName = freezed,
     Object? phone = null,
     Object? description = null,
     Object? type = null,
@@ -220,10 +229,22 @@ class _$HistoryInfoCopyWithImpl<$Res, $Val extends HistoryInfo>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String,
+      paymentMode: null == paymentMode
+          ? _value.paymentMode
+          : paymentMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      bankName: freezed == bankName
+          ? _value.bankName
+          : bankName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondName: freezed == secondName
+          ? _value.secondName
+          : secondName // ignore: cast_nullable_to_non_nullable
+              as String?,
       phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -266,7 +287,10 @@ abstract class _$$_HistoryInfoCopyWith<$Res>
   @useResult
   $Res call(
       {String status,
-      String name,
+      String firstName,
+      String paymentMode,
+      String? bankName,
+      String? secondName,
       String phone,
       String description,
       String type,
@@ -288,7 +312,10 @@ class __$$_HistoryInfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? name = null,
+    Object? firstName = null,
+    Object? paymentMode = null,
+    Object? bankName = freezed,
+    Object? secondName = freezed,
     Object? phone = null,
     Object? description = null,
     Object? type = null,
@@ -302,10 +329,22 @@ class __$$_HistoryInfoCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String,
+      paymentMode: null == paymentMode
+          ? _value.paymentMode
+          : paymentMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      bankName: freezed == bankName
+          ? _value.bankName
+          : bankName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondName: freezed == secondName
+          ? _value.secondName
+          : secondName // ignore: cast_nullable_to_non_nullable
+              as String?,
       phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -343,7 +382,10 @@ class __$$_HistoryInfoCopyWithImpl<$Res>
 class _$_HistoryInfo implements _HistoryInfo {
   const _$_HistoryInfo(
       {required this.status,
-      required this.name,
+      required this.firstName,
+      required this.paymentMode,
+      this.bankName,
+      this.secondName,
       required this.phone,
       required this.description,
       required this.type,
@@ -355,7 +397,13 @@ class _$_HistoryInfo implements _HistoryInfo {
   @override
   final String status;
   @override
-  final String name;
+  final String firstName;
+  @override
+  final String paymentMode;
+  @override
+  final String? bankName;
+  @override
+  final String? secondName;
   @override
   final String phone;
   @override
@@ -374,7 +422,7 @@ class _$_HistoryInfo implements _HistoryInfo {
 
   @override
   String toString() {
-    return 'HistoryInfo(status: $status, name: $name, phone: $phone, description: $description, type: $type, amount: $amount, time: $time, assetImageUrl: $assetImageUrl, isFavourite: $isFavourite)';
+    return 'HistoryInfo(status: $status, firstName: $firstName, paymentMode: $paymentMode, bankName: $bankName, secondName: $secondName, phone: $phone, description: $description, type: $type, amount: $amount, time: $time, assetImageUrl: $assetImageUrl, isFavourite: $isFavourite)';
   }
 
   @override
@@ -383,7 +431,14 @@ class _$_HistoryInfo implements _HistoryInfo {
         (other.runtimeType == runtimeType &&
             other is _$_HistoryInfo &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.paymentMode, paymentMode) ||
+                other.paymentMode == paymentMode) &&
+            (identical(other.bankName, bankName) ||
+                other.bankName == bankName) &&
+            (identical(other.secondName, secondName) ||
+                other.secondName == secondName) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -397,8 +452,20 @@ class _$_HistoryInfo implements _HistoryInfo {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, name, phone, description,
-      type, amount, time, assetImageUrl, isFavourite);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      firstName,
+      paymentMode,
+      bankName,
+      secondName,
+      phone,
+      description,
+      type,
+      amount,
+      time,
+      assetImageUrl,
+      isFavourite);
 
   @JsonKey(ignore: true)
   @override
@@ -410,7 +477,10 @@ class _$_HistoryInfo implements _HistoryInfo {
 abstract class _HistoryInfo implements HistoryInfo {
   const factory _HistoryInfo(
       {required final String status,
-      required final String name,
+      required final String firstName,
+      required final String paymentMode,
+      final String? bankName,
+      final String? secondName,
       required final String phone,
       required final String description,
       required final String type,
@@ -422,7 +492,13 @@ abstract class _HistoryInfo implements HistoryInfo {
   @override
   String get status;
   @override
-  String get name;
+  String get firstName;
+  @override
+  String get paymentMode;
+  @override
+  String? get bankName;
+  @override
+  String? get secondName;
   @override
   String get phone;
   @override

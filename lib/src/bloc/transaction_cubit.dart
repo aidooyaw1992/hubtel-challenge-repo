@@ -11,10 +11,11 @@ class TransactionCubit extends Cubit<TransactionState> {
     const TransactionModel(date: "May 24, 2022", info: [
       HistoryInfo(
           type: "Personal",
+          paymentMode: "momo",
           amount: "500",
           assetImageUrl: "assets/momo.jpeg",
           status: "Successful",
-          name: "Emmanuel Rockson",
+          firstName: "Emmanuel Rockson",
           phone: "0241234567",
           description: "Cool your heart wai",
           isFavourite: true,
@@ -22,9 +23,11 @@ class TransactionCubit extends Cubit<TransactionState> {
       HistoryInfo(
           type: "Personal",
           amount: "500",
+          paymentMode: "bank",
+          bankName: "Absa Bank",
           assetImageUrl: "assets/absa.jpeg",
           status: "Failed",
-          name: "Emmanuel Rockson",
+          firstName: "Emmanuel Rockson",
           phone: "0241234567",
           description: "Cool your heart wai",
           time: "14:45PM")
@@ -32,22 +35,25 @@ class TransactionCubit extends Cubit<TransactionState> {
     const TransactionModel(date: "May 24, 2022", info: [
       HistoryInfo(
           type: "Personal",
+          paymentMode: "momo",
           amount: "500",
           assetImageUrl: "assets/momo.jpeg",
           status: "Successful",
-          name: "Emmanuel Rockson",
+          firstName: "Emmanuel Rockson",
           phone: "0241234567",
           description: "Cool your heart wai",
           isFavourite: true,
           time: "14:45PM"),
       HistoryInfo(
           type: "Personal",
+          paymentMode: "momo",
           amount: "500",
-          assetImageUrl: "assets/absa.jpeg",
-          status: "Failed",
-          name: "Emmanuel Rockson",
+          assetImageUrl: "assets/momo.jpeg",
+          status: "Successful",
+          firstName: "Emmanuel Rockson",
           phone: "0241234567",
           description: "Cool your heart wai",
+          isFavourite: true,
           time: "14:45PM"),
     ])
   ];
