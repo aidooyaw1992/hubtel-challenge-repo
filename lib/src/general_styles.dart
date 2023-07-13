@@ -17,6 +17,8 @@ abstract class GenAssetSvgImages {
   static const String money = "assets/images/money.svg";
   static const String history = "assets/images/history.svg";
   static const String home = "assets/images/home.svg";
+  static const String search = "assets/images/search.svg";
+  static const String settings = "assets/images/settings.svg";
 
   // static const String calendar = "assets/images/calendar.svg";
 }

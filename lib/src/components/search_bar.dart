@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hubtel_coding_challenge/src/general_styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
@@ -8,29 +9,35 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    return Row(
-      children: [
-        Container(
-          // height: 98,
-          width: deviceSize.width * 0.8,
-          decoration: BoxDecoration(
-              color: GenColors.darkGrey, borderRadius: BorderRadius.circular(5)),
-          child: Expanded(
-            child: TextField(
-              decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Search",
-                  prefixIcon: Icon(Icons.search)),
-              controller: controller,
+    return SizedBox(
+      height: 45,
+      child: Row(
+        children: [
+          Container(
+            width: deviceSize.width * 0.8,
+            decoration: BoxDecoration(
+                color: GenColors.darkGrey,
+                borderRadius: BorderRadius.circular(5)),
+            child: Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Search",
+                    prefixIcon: Container(
+                        // height: 40,
+                        // width: 40,
+padding: EdgeInsets.all(10),
+                        child: SvgPicture.asset(
+                      GenAssetSvgImages.search,
+                    ))),
+                controller: controller,
+              ),
             ),
           ),
-        ),
-        IconButton(
-            onPressed: () {
-              print("filter pressed");
-            },
-            icon: const Icon(Icons.menu))
-      ],
+          SizedBox(
+              height: 45, child: SvgPicture.asset(GenAssetSvgImages.settings))
+        ],
+      ),
     );
   }
 }

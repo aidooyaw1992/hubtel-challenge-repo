@@ -23,8 +23,8 @@ class CustomHistoryBottomItem extends StatelessWidget {
             const SizedBox(height: 4),
             SvgPicture.asset(
               GenAssetSvgImages.history,
-height: 40,
-        width: 40,
+              height: 40,
+              width: 40,
               // colorFilter: isSelected
               //     ? const ColorFilter.mode(Colors.black, BlendMode.srcIn)
               //     : const ColorFilter.mode(GenColors.ash, BlendMode.srcIn),
@@ -33,10 +33,10 @@ height: 40,
             Text("History",
                 style: isSelected
                     ? GenTextStyles.regular_14px.copyWith(
-                        color: GenColors.ash,
                         fontSize: 10.sp,
                       )
                     : GenTextStyles.regular_14px.copyWith(
+                        color: GenColors.ash,
                         fontSize: 10.sp,
                       )),
           ],
