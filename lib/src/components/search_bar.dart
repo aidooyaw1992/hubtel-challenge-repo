@@ -14,7 +14,7 @@ class CustomSearchBar extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: 45,
+            // height: 45,
             width: 0.8.sw,
             constraints: const BoxConstraints(minWidth: 0.7),
             decoration: BoxDecoration(
@@ -26,9 +26,7 @@ class CustomSearchBar extends StatelessWidget {
                     hintText: "Search",
                     prefixIcon: Container(
                         padding: const EdgeInsets.all(10),
-                        child: SvgPicture.asset(
-                          GenAssetSvgImages.search,
-                        ))),
+                        child: SvgPicture.asset(GenAssetSvgImages.search))),
                 controller: controller,
               ),
             ),

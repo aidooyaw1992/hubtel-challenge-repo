@@ -108,45 +108,48 @@ class _HomeViewState extends State<HomeView> {
                   const SizedBox(height: 16),
                   CustomSearchBar(controller: textEditingController),
                   const SizedBox(height: 8),
-                  BlocBuilder<TransactionCubit, TransactionState>(
-                    builder: (context, state) {
-                      if (state is TransactionLoadingState) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      if (state is TransactionLoadedSuccessState) {
-                        final list = state.results;
-                        return Container(
-                          padding: const EdgeInsets.only(top: 16),
-                          constraints: BoxConstraints(
-                              minHeight: 0.40.sh, maxHeight: 0.52.sh),
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: list.length,
-                            itemBuilder: (context, index) {
-                              final TransactionModel item = list[index];
-                              return Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(height: 4),
-                                    Row(children: [
-                                      CustomDateWidget(date: item.date)
-                                    ]),
-                                    SizedBox(height: 16.h),
-                                    ...item.info
-                                        .map((e) => Container(
-                                            margin:
-                                                EdgeInsets.only(bottom: 16.h),
-                                            child: CustomListTile(data: e)))
-                                        .toList(),
-                                  ]);
-                            },
-                          ),
-                        );
-                      }
-                      return const SizedBox.shrink();
-                    },
+                  Expanded(
+                    child: BlocBuilder<TransactionCubit, TransactionState>(
+                      builder: (context, state) {
+                        if (state is TransactionLoadingState) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        if (state is TransactionLoadedSuccessState) {
+                          final list = state.results;
+                          return Container(
+                            padding: const EdgeInsets.only(top: 16),
+                            // constraints: BoxConstraints(
+                            //     minHeight: 0.40.sh, maxHeight: 0.52.sh),
+
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: list.length,
+                              itemBuilder: (context, index) {
+                                final TransactionModel item = list[index];
+                                return Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const SizedBox(height: 4),
+                                      Row(children: [
+                                        CustomDateWidget(date: item.date)
+                                      ]),
+                                      SizedBox(height: 16.h),
+                                      ...item.info
+                                          .map((e) => Container(
+                                              margin:
+                                                  EdgeInsets.only(bottom: 16.h),
+                                              child: CustomListTile(data: e)))
+                                          .toList(),
+                                    ]);
+                              },
+                            ),
+                          );
+                        }
+                        return const SizedBox.shrink();
+                      },
+                    ),
                   )
                 ],
               ),

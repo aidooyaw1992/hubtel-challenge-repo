@@ -16,7 +16,7 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // height: 178,
-      constraints: const BoxConstraints(minHeight: 162, maxHeight: 200),
+      constraints: const BoxConstraints(minHeight: 162, maxHeight: 198),
       width: double.maxFinite,
       decoration: BoxDecoration(
         border: Border.all(color: GenColors.darkGrey, width: 1),
@@ -40,7 +40,7 @@ class CustomListTile extends StatelessWidget {
           const SizedBox(height: 4),
           Container(
             // color: Colors.red,
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
             // height: 80,
             constraints: const BoxConstraints(minHeight: 48),
             child: Row(
@@ -97,7 +97,7 @@ class CustomListTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 42.0),
+                  padding: const EdgeInsets.only(left: 40.0),
                   child: Text(
                     data.phone,
                     style: const TextStyle(color: Colors.grey),
@@ -111,8 +111,9 @@ class CustomListTile extends StatelessWidget {
               ],
             ),
           ),
+          // const SizedBox(height: 16),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
             child: Divider(thickness: 1.2),
           ),
           Container(
@@ -122,14 +123,14 @@ class CustomListTile extends StatelessWidget {
             child: Row(
               children: [
                 SvgPicture.asset(GenAssetSvgImages.person,
-                          height: 25, width: 25),
-                      const SizedBox(width: 8),
-                      Text('${data.type}'),
-                      const SizedBox(width: 8),
-                      if (data.description != null) ...[
-                        Description(reasonText: data.description!),
-                        const Spacer()
-                      ],
+                    height: 25, width: 25),
+                const SizedBox(width: 8),
+                Text('${data.type}'),
+                const SizedBox(width: 8),
+                if (data.description != null) ...[
+                  Description(reasonText: data.description!),
+                  const Spacer()
+                ],
                 IsFavoriteWidget(isFavorite: data.isFavourite)
               ],
             ),
