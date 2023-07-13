@@ -15,11 +15,12 @@ class CustomSearchBar extends StatelessWidget {
         child: TextField(
           controller: controller,
           decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: "Search",
-              prefixIcon: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: SvgPicture.asset(GenAssetSvgImages.search))),
+            border: InputBorder.none,
+            hintText: "Search",
+            prefixIcon: Container(
+                padding: const EdgeInsets.all(10),
+                child: SvgPicture.asset(GenAssetSvgImages.search)),
+          ),
         ),
       ),
     );
