@@ -50,193 +50,176 @@ class _HomeViewState extends State<HomeView> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            bottom: PreferredSize(
-              preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+            child: Container(
+              height: 60.h,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
               child: Container(
-                height: 60.h,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-                child: Container(
-                  decoration: BoxDecoration(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.grey[200],
+                ),
+                child: TabBar(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                  indicatorColor: Colors.transparent,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.black,
+                  indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color: Colors.grey[200],
+                    color: Colors.white,
                   ),
-                  child: TabBar(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-                    indicatorColor: Colors.transparent,
-                    labelColor: Colors.black,
-                    unselectedLabelColor: Colors.black,
-                    indicator: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.white,
+                  tabs: [
+                    Tab(
+                      child: SizedBox(
+                        // width: 140.w,
+                        child: Center(
+                            child: Text('History',
+                                style: GenTextStyles.extraBold_10px.copyWith(
+                                    fontSize: 13.sp, color: Colors.black))),
+                      ),
                     ),
-                    tabs: [
-                      Tab(
-                        child: SizedBox(
-                          // width: 140.w,
-                          child: Center(
-                              child: Text('History',
-                                  style: GenTextStyles.extraBold_10px.copyWith(
-                                      fontSize: 13.sp, color: Colors.black))),
-                        ),
+                    Tab(
+                      child: SizedBox(
+                        // width: 160.w,
+                        child: Center(
+                            child: Text('Transaction Summary',
+                                style: GenTextStyles.extraBold_10px
+                                    .copyWith(fontSize: 13.sp))),
                       ),
-                      Tab(
-                        child: SizedBox(
-                          // width: 160.w,
-                          child: Center(
-                              child: Text('Transaction Summary',
-                                  style: GenTextStyles.extraBold_10px
-                                      .copyWith(fontSize: 13.sp))),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
-          body: SafeArea(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              height: 1.sh,
-              width: 1.sw,
-              child: Column(
-                children: [
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    height: 45,
-                    width: 1.sw,
-                    child: Row(
-                      children: [
-                        CustomSearchBar(controller: textEditingController),
-                        SizedBox(
-                            height: 45,
-                            width: 45,
-                            child: SvgPicture.asset(GenAssetSvgImages.settings))
-                      ],
-                    ),
-                  ),
-                  // ,
-                  const SizedBox(height: 8),
-                  Expanded(
-                    child: BlocBuilder<TransactionCubit, TransactionState>(
-                      builder: (context, state) {
-                        if (state is TransactionLoadingState) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                        if (state is TransactionLoadedSuccessState) {
-                          final list = state.results;
-                          return Container(
-                            padding: const EdgeInsets.only(top: 16),
-                            // constraints: BoxConstraints(
-                            //     minHeight: 0.40.sh, maxHeight: 0.52.sh),
-
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: list.length,
-                              itemBuilder: (context, index) {
-                                final TransactionModel item = list[index];
-                                return Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const SizedBox(height: 4),
-                                      Row(children: [
-                                        CustomDateWidget(date: item.date)
-                                      ]),
-                                      SizedBox(height: 16.h),
-                                      ...item.info
-                                          .map((e) => Container(
-                                              margin:
-                                                  EdgeInsets.only(bottom: 16.h),
-                                              child: CustomListTile(data: e)))
-                                          .toList(),
-                                    ]);
-                              },
-                            ),
-                          );
-                        }
-                        return const SizedBox.shrink();
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: GestureDetector(
-            onTap: () {
-              print("pressed");
-            },
-            child: Container(
-              height: 60,
-              width: 158,
-              decoration: BoxDecoration(
-                  color: Colors.teal, borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.white),
-                      child: const Icon(
-                        Icons.add,
-                        size: 30,
-                        color: Colors.teal,
-                      )),
-                  const SizedBox(width: 8),
-                  const Text(
-                    "SEND NEW",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          bottomNavigationBar: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                border: Border(top: BorderSide(color: GenColors.darkGrey))),
-            height: 60 + 32.h,
-            padding: EdgeInsets.only(top: 16.h, bottom: 8.h),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+        ),
+        body: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            height: 1.sh,
+            width: 1.sw,
+            child: Column(
               children: [
-                CustomHomeBottomItem(onPressed: () {}),
-                CustomSendBottomItem(
-                    isSelected: currentPageIndex == 1, onPressed: () {}),
-                CustomHistoryBottomItem(
-                    isSelected: currentPageIndex == 2, onPressed: () {}),
-                CustomCalendarBottomItem(
-                    isSelected: currentPageIndex == 3, onPressed: () {}),
+                const SizedBox(height: 16),
+                SizedBox(
+                  height: 45,
+                  width: 1.sw,
+                  child: Row(
+                    children: [
+                      CustomSearchBar(controller: textEditingController),
+                      SizedBox(
+                          height: 45,
+                          width: 45,
+                          child: SvgPicture.asset(GenAssetSvgImages.settings))
+                    ],
+                  ),
+                ),
+                // ,
+                const SizedBox(height: 8),
+                Expanded(
+                  child: BlocBuilder<TransactionCubit, TransactionState>(
+                    builder: (context, state) {
+                      if (state is TransactionLoadingState) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      if (state is TransactionLoadedSuccessState) {
+                        final list = state.results;
+                        return Container(
+                          padding: const EdgeInsets.only(top: 16),
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: list.length,
+                            itemBuilder: (context, index) {
+                              final TransactionModel item = list[index];
+                              return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const SizedBox(height: 4),
+                                    Row(children: [
+                                      CustomDateWidget(date: item.date)
+                                    ]),
+                                    SizedBox(height: 16.h),
+                                    ...item.info
+                                        .map((e) => Container(
+                                            margin:
+                                                EdgeInsets.only(bottom: 16.h),
+                                            child: CustomListTile(data: e)))
+                                        .toList(),
+                                  ]);
+                            },
+                          ),
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    },
+                  ),
+                )
               ],
             ),
-          )
-          //  BottomNavigationBar(
-          //   he
-          //     type: BottomNavigationBarType.fixed,
-          //     unselectedItemColor: Colors.grey,
-          //     selectedItemColor: Colors.black,
-          //     items: const [
-          //       BottomNavigationBarItem(label: "Home", icon: CustomHomeIcon()),
-          //       BottomNavigationBarItem(label: "Send", icon: Icon(Icons.home)),
-          //       BottomNavigationBarItem(label: "History", icon: Icon(Icons.report)),
-          //       BottomNavigationBarItem(
-          //           label: "Scheduled", icon: Icon(Icons.calendar_month))
-          //     ]),
           ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: GestureDetector(
+          onTap: () {
+            print("pressed");
+          },
+          child: Container(
+            height: 60,
+            width: 158,
+            decoration: BoxDecoration(
+                color: Colors.teal, borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.white),
+                    child: const Icon(
+                      Icons.add,
+                      size: 30,
+                      color: Colors.teal,
+                    )),
+                const SizedBox(width: 8),
+                const Text(
+                  "SEND NEW",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(top: BorderSide(color: GenColors.darkGrey))),
+          height: 60 + 32.h,
+          padding: EdgeInsets.only(top: 16.h, bottom: 8.h),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              CustomHomeBottomItem(onPressed: () {}),
+              CustomSendBottomItem(
+                  isSelected: currentPageIndex == 1, onPressed: () {}),
+              CustomHistoryBottomItem(
+                  isSelected: currentPageIndex == 2, onPressed: () {}),
+              CustomCalendarBottomItem(
+                  isSelected: currentPageIndex == 3, onPressed: () {}),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
