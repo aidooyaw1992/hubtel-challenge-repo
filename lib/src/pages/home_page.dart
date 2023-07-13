@@ -116,10 +116,8 @@ class _HomeViewState extends State<HomeView> {
                         return Container(
                           // height: deviceSize.height * 0.60,
                           constraints: BoxConstraints(
-                            minHeight: deviceSize.height * 0.50,
-                            maxHeight: deviceSize.height * 0.60
-                          ),
-                          
+                              minHeight: 0.50.sh, maxHeight: 0.60.sh),
+
                           child: ListView.builder(
                             itemCount: list.length,
                             itemBuilder: (context, index) {
