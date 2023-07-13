@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_calendar_bottom_item%20copy.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_history_bottom_item.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_home_bottom_item.dart';
@@ -101,12 +102,25 @@ class _HomeViewState extends State<HomeView> {
           body: SafeArea(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              height: deviceSize.height,
-              width: deviceSize.width,
+              height: 1.sh,
+              width: 1.sw,
               child: Column(
                 children: [
                   const SizedBox(height: 16),
-                  CustomSearchBar(controller: textEditingController),
+                  SizedBox(
+                    height: 45,
+                    width: 1.sw,
+                    child: Row(
+                      children: [
+                        CustomSearchBar(controller: textEditingController),
+                        SizedBox(
+                            height: 45,
+                            width: 45,
+                            child: SvgPicture.asset(GenAssetSvgImages.settings))
+                      ],
+                    ),
+                  ),
+                  // ,
                   const SizedBox(height: 8),
                   Expanded(
                     child: BlocBuilder<TransactionCubit, TransactionState>(
