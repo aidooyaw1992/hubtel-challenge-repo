@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hubtel_coding_challenge/src/components/momo_icon.dart';
 import 'package:hubtel_coding_challenge/src/components/transaction_status_widget.dart';
+import 'package:hubtel_coding_challenge/src/general_styles.dart';
 import 'package:hubtel_coding_challenge/src/models/transaction_model.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -13,7 +15,7 @@ class CustomListTile extends StatelessWidget {
       height: 300,
       width: double.maxFinite,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey, width: 0.8),
+        border: Border.all(color: GenColors.darkGrey, width: 1),
         borderRadius: BorderRadius.circular(16),
         // color: Colors.red,
       ),
@@ -21,7 +23,13 @@ class CustomListTile extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 8),
-          Row(children: [Text(data.time)]),
+          Row(children: [
+            Text(
+              data.time,
+              style: GenTextStyles.regular_14px
+                  .copyWith(fontSize: 12.sp, color: GenColors.darkGrey),
+            )
+          ]),
           const SizedBox(height: 4),
           Container(
             color: Colors.red,

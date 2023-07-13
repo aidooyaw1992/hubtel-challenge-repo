@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hubtel_coding_challenge/src/general_styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final TextEditingController controller;
@@ -13,7 +14,7 @@ class CustomSearchBar extends StatelessWidget {
           // height: 98,
           width: deviceSize.width * 0.8,
           decoration: BoxDecoration(
-              color: Colors.blueGrey[100], borderRadius: BorderRadius.circular(5)),
+              color: GenColors.darkGrey, borderRadius: BorderRadius.circular(5)),
           child: Expanded(
             child: TextField(
               decoration: const InputDecoration(
