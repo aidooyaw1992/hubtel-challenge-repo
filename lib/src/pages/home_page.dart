@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hubtel_coding_challenge/src/components/custom_calendar_bottom_item%20copy.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_history_bottom_item.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_home_bottom_item.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_send_bottom_item.dart';
@@ -40,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
     super.initState();
   }
 
-  int currentPageIndex = 1;
+  int currentPageIndex = 2;
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -148,8 +149,8 @@ class _HomeViewState extends State<HomeView> {
                   isSelected: currentPageIndex == 1, onPressed: () {}),
               CustomHistoryBottomItem(
                   isSelected: currentPageIndex == 2, onPressed: () {}),
-              CustomSendBottomItem(
-                  isSelected: currentPageIndex == 1, onPressed: () {}),
+              CustomCalendarBottomItem(
+                  isSelected: currentPageIndex == 3, onPressed: () {}),
             ],
           ),
         )
