@@ -129,6 +129,7 @@ class _HomeViewState extends State<HomeView> {
                               return Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
+                                    SizedBox(height: 4),
                                     Row(children: [
                                       CustomDateWidget(date: item.date)
                                     ]),

@@ -75,7 +75,7 @@ class CustomListTile extends StatelessWidget {
                       Text(
                         '${data.bankName}',
                         style:
-                            GenTextStyles.regular_14px.copyWith(fontSize: 12),
+                            GenTextStyles.regular_14px.copyWith(fontSize: 14),
                       ),
                     ]
                   ],
