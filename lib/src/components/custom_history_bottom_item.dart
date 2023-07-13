@@ -4,10 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../general_styles.dart';
 
-class CustomSendBottomItem extends StatelessWidget {
+class CustomHistoryBottomItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onPressed;
-  const CustomSendBottomItem({
+  const CustomHistoryBottomItem({
     super.key,
     required this.isSelected,
     required this.onPressed,
@@ -20,21 +20,17 @@ class CustomSendBottomItem extends StatelessWidget {
         width: 65,
         child: Column(
           children: [
-            Container(
-              height: 45,
-              width: 45,
-              padding: const EdgeInsets.all(8),
-              child: SvgPicture.asset(
-                GenAssetSvgImages.money,
-                // height: 32,
-                // width: 32,
-                colorFilter: isSelected
-                    ? const ColorFilter.mode(Colors.black, BlendMode.srcIn)
-                    : const ColorFilter.mode(GenColors.ash, BlendMode.srcIn),
-              ),
+            const SizedBox(height: 4),
+            SvgPicture.asset(
+              GenAssetSvgImages.history,
+height: 40,
+        width: 40,
+              // colorFilter: isSelected
+              //     ? const ColorFilter.mode(Colors.black, BlendMode.srcIn)
+              //     : const ColorFilter.mode(GenColors.ash, BlendMode.srcIn),
             ),
             const Spacer(),
-            Text("Send",
+            Text("History",
                 style: isSelected
                     ? GenTextStyles.regular_14px.copyWith(
                         color: GenColors.ash,

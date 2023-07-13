@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hubtel_coding_challenge/src/components/custom_history_bottom_item.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_home_bottom_item.dart';
 import 'package:hubtel_coding_challenge/src/components/custom_send_bottom_item.dart';
 import 'package:hubtel_coding_challenge/src/general_styles.dart';
@@ -39,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
     super.initState();
   }
 
-  int currentPageIndex = 0;
+  int currentPageIndex = 1;
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -130,20 +131,23 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
           color: Colors.white,
             border: Border(top: BorderSide(color: GenColors.darkGrey))
           ),
-          height: 70 + 48.h,
-          padding: EdgeInsets.only(bottom: 8.h),
+          height: 65 + 48.h,
+          padding: EdgeInsets.only(
+            top: 16.h,
+            bottom: 8.h),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomHomeBottomItem(onPressed: () {}),
               CustomSendBottomItem(
                   isSelected: currentPageIndex == 1, onPressed: () {}),
-              CustomSendBottomItem(
-                  isSelected: currentPageIndex == 1, onPressed: () {}),
+              CustomHistoryBottomItem(
+                  isSelected: currentPageIndex == 2, onPressed: () {}),
               CustomSendBottomItem(
                   isSelected: currentPageIndex == 1, onPressed: () {}),
             ],
