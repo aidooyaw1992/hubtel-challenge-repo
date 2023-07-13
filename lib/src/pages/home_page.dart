@@ -55,11 +55,9 @@ class _HomeViewState extends State<HomeView> {
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(AppBar().preferredSize.height),
               child: Container(
-                height: 52.h,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 5,
-                ),
+                height: 60.h,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
@@ -75,17 +73,23 @@ class _HomeViewState extends State<HomeView> {
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.white,
                     ),
-                    tabs: const [
+                    tabs: [
                       Tab(
                         child: SizedBox(
-                          width: 168,
-                          child: Center(child: Text('History')),
+                          // width: 140.w,
+                          child: Center(
+                              child: Text('History',
+                                  style: GenTextStyles.extraBold_10px.copyWith(
+                                      fontSize: 13.sp, color: Colors.black))),
                         ),
                       ),
                       Tab(
                         child: SizedBox(
-                          width: 168,
-                          child: Center(child: Text('Transaction Summary')),
+                          // width: 160.w,
+                          child: Center(
+                              child: Text('Transaction Summary',
+                                  style: GenTextStyles.extraBold_10px
+                                      .copyWith(fontSize: 13.sp))),
                         ),
                       ),
                     ],
@@ -114,11 +118,11 @@ class _HomeViewState extends State<HomeView> {
                       if (state is TransactionLoadedSuccessState) {
                         final list = state.results;
                         return Container(
-                          // height: deviceSize.height * 0.60,
+                          padding: const EdgeInsets.only(top: 16),
                           constraints: BoxConstraints(
-                              minHeight: 0.50.sh, maxHeight: 0.60.sh),
-
+                              minHeight: 0.40.sh, maxHeight: 0.52.sh),
                           child: ListView.builder(
+                            shrinkWrap: true,
                             itemCount: list.length,
                             itemBuilder: (context, index) {
                               final TransactionModel item = list[index];
@@ -186,7 +190,7 @@ class _HomeViewState extends State<HomeView> {
             decoration: const BoxDecoration(
                 color: Colors.white,
                 border: Border(top: BorderSide(color: GenColors.darkGrey))),
-            height: 65 + 48.h,
+            height: 60 + 32.h,
             padding: EdgeInsets.only(top: 16.h, bottom: 8.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

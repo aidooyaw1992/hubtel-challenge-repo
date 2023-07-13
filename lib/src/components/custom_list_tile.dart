@@ -61,13 +61,13 @@ class CustomListTile extends StatelessWidget {
                       Text(
                         data.firstName,
                         style:
-                            GenTextStyles.regular_14px.copyWith(fontSize: 12),
+                            GenTextStyles.regular_14px.copyWith(fontSize: 14),
                       ),
                       data.secondName != null
                           ? Text(
                               data.secondName!,
                               style: GenTextStyles.regular_14px
-                                  .copyWith(fontSize: 12),
+                                  .copyWith(fontSize: 14),
                             )
                           : const SizedBox.shrink()
                     ],
