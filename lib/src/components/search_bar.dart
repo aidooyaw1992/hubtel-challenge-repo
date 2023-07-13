@@ -16,7 +16,7 @@ class CustomSearchBar extends StatelessWidget {
           Container(
             width: deviceSize.width * 0.8,
             decoration: BoxDecoration(
-                color: GenColors.darkGrey,
+                color: GenColors.grey,
                 borderRadius: BorderRadius.circular(5)),
             child: Expanded(
               child: TextField(
@@ -24,12 +24,10 @@ class CustomSearchBar extends StatelessWidget {
                     border: InputBorder.none,
                     hintText: "Search",
                     prefixIcon: Container(
-                        // height: 40,
-                        // width: 40,
-padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: SvgPicture.asset(
-                      GenAssetSvgImages.search,
-                    ))),
+                          GenAssetSvgImages.search,
+                        ))),
                 controller: controller,
               ),
             ),

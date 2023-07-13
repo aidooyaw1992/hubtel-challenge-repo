@@ -96,7 +96,7 @@ class _HomeViewState extends State<HomeView> {
           ),
           body: SafeArea(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               height: deviceSize.height,
               width: deviceSize.width,
               child: Column(
@@ -113,8 +113,13 @@ class _HomeViewState extends State<HomeView> {
                       }
                       if (state is TransactionLoadedSuccessState) {
                         final list = state.results;
-                        return SizedBox(
-                          height: deviceSize.height * 0.78,
+                        return Container(
+                          // height: deviceSize.height * 0.60,
+                          constraints: BoxConstraints(
+                            minHeight: deviceSize.height * 0.50,
+                            maxHeight: deviceSize.height * 0.60
+                          ),
+                          
                           child: ListView.builder(
                             itemCount: list.length,
                             itemBuilder: (context, index) {
