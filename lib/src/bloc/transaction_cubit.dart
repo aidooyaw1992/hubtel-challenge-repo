@@ -16,6 +16,7 @@ class TransactionCubit extends Cubit<TransactionState> {
           assetImageUrl: "assets/momo.jpeg",
           status: "Successful",
           firstName: "Emmanuel Rockson",
+          secondName: "Kwabena Uncle Ebo",
           phone: "0241234567",
           description: "Cool your heart wai",
           isFavourite: true,
@@ -29,7 +30,8 @@ class TransactionCubit extends Cubit<TransactionState> {
           status: "Failed",
           firstName: "Emmanuel Rockson",
           phone: "0241234567",
-          description: "Cool your heart wai",
+          isFavourite: true,
+          // description: "Cool your heart wai",
           time: "14:45PM")
     ]),
     const TransactionModel(date: "May 24, 2022", info: [

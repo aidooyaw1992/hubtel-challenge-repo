@@ -20,6 +20,7 @@ abstract class GenAssetSvgImages {
   static const String money = "assets/images/money.svg";
   static const String history = "assets/images/history.svg";
   static const String home = "assets/images/home.svg";
+  static const String person = "assets/images/person.svg";
   static const String close = "assets/images/close_icon.svg";
   static const String search = "assets/images/search.svg";
   static const String success = "assets/images/success.svg";

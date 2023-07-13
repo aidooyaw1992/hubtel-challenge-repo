@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hubtel_coding_challenge/src/general_styles.dart';
 
@@ -8,16 +9,16 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size deviceSize = MediaQuery.of(context).size;
     return SizedBox(
       height: 45,
       child: Row(
         children: [
           Container(
-            width: deviceSize.width * 0.8,
+            height: 45,
+            width: 0.8.sw,
+            constraints: const BoxConstraints(minWidth: 0.7),
             decoration: BoxDecoration(
-                color: GenColors.grey,
-                borderRadius: BorderRadius.circular(5)),
+                color: GenColors.grey, borderRadius: BorderRadius.circular(5)),
             child: Expanded(
               child: TextField(
                 decoration: InputDecoration(
@@ -32,8 +33,11 @@ class CustomSearchBar extends StatelessWidget {
               ),
             ),
           ),
+          // const Spacer(),
           SizedBox(
-              height: 45, child: SvgPicture.asset(GenAssetSvgImages.settings))
+              height: 45,
+              width: 45,
+              child: SvgPicture.asset(GenAssetSvgImages.settings))
         ],
       ),
     );

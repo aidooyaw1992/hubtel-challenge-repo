@@ -165,8 +165,8 @@ mixin _$HistoryInfo {
   String? get bankName => throw _privateConstructorUsedError;
   String? get secondName => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
   String get time => throw _privateConstructorUsedError;
   String get assetImageUrl => throw _privateConstructorUsedError;
@@ -190,8 +190,8 @@ abstract class $HistoryInfoCopyWith<$Res> {
       String? bankName,
       String? secondName,
       String phone,
-      String description,
-      String type,
+      String? description,
+      String? type,
       String amount,
       String time,
       String assetImageUrl,
@@ -217,8 +217,8 @@ class _$HistoryInfoCopyWithImpl<$Res, $Val extends HistoryInfo>
     Object? bankName = freezed,
     Object? secondName = freezed,
     Object? phone = null,
-    Object? description = null,
-    Object? type = null,
+    Object? description = freezed,
+    Object? type = freezed,
     Object? amount = null,
     Object? time = null,
     Object? assetImageUrl = null,
@@ -249,14 +249,14 @@ class _$HistoryInfoCopyWithImpl<$Res, $Val extends HistoryInfo>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -292,8 +292,8 @@ abstract class _$$_HistoryInfoCopyWith<$Res>
       String? bankName,
       String? secondName,
       String phone,
-      String description,
-      String type,
+      String? description,
+      String? type,
       String amount,
       String time,
       String assetImageUrl,
@@ -317,8 +317,8 @@ class __$$_HistoryInfoCopyWithImpl<$Res>
     Object? bankName = freezed,
     Object? secondName = freezed,
     Object? phone = null,
-    Object? description = null,
-    Object? type = null,
+    Object? description = freezed,
+    Object? type = freezed,
     Object? amount = null,
     Object? time = null,
     Object? assetImageUrl = null,
@@ -349,14 +349,14 @@ class __$$_HistoryInfoCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -387,8 +387,8 @@ class _$_HistoryInfo implements _HistoryInfo {
       this.bankName,
       this.secondName,
       required this.phone,
-      required this.description,
-      required this.type,
+      this.description,
+      this.type = "Other",
       required this.amount,
       required this.time,
       required this.assetImageUrl,
@@ -407,9 +407,10 @@ class _$_HistoryInfo implements _HistoryInfo {
   @override
   final String phone;
   @override
-  final String description;
+  final String? description;
   @override
-  final String type;
+  @JsonKey()
+  final String? type;
   @override
   final String amount;
   @override
@@ -482,8 +483,8 @@ abstract class _HistoryInfo implements HistoryInfo {
       final String? bankName,
       final String? secondName,
       required final String phone,
-      required final String description,
-      required final String type,
+      final String? description,
+      final String? type,
       required final String amount,
       required final String time,
       required final String assetImageUrl,
@@ -502,9 +503,9 @@ abstract class _HistoryInfo implements HistoryInfo {
   @override
   String get phone;
   @override
-  String get description;
+  String? get description;
   @override
-  String get type;
+  String? get type;
   @override
   String get amount;
   @override
