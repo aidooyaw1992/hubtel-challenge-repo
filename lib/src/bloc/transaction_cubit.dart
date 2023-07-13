@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hubtel_coding_challenge/models/transaction_model.dart';
+import 'package:hubtel_coding_challenge/src/models/transaction_model.dart';
 
 part 'transaction_state.dart';
 

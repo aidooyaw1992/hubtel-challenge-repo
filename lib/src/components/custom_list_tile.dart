@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hubtel_coding_challenge/components/momo_icon.dart';
-import 'package:hubtel_coding_challenge/components/transaction_status_widget.dart';
-import 'package:hubtel_coding_challenge/models/transaction_model.dart';
+import 'package:hubtel_coding_challenge/src/components/momo_icon.dart';
+import 'package:hubtel_coding_challenge/src/components/transaction_status_widget.dart';
+import 'package:hubtel_coding_challenge/src/models/transaction_model.dart';
 
 class CustomListTile extends StatelessWidget {
   final HistoryInfo data;
@@ -9,7 +9,6 @@ class CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size deviceSize = MediaQuery.of(context).size;
     return Container(
       height: 300,
       width: double.maxFinite,

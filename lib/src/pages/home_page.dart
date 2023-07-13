@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hubtel_coding_challenge/bloc/transaction_cubit.dart';
-import 'package:hubtel_coding_challenge/components/custom_date_widget.dart';
-import 'package:hubtel_coding_challenge/components/custom_list_tile.dart';
-import 'package:hubtel_coding_challenge/components/search_bar.dart';
-import 'package:hubtel_coding_challenge/models/transaction_model.dart';
+
+import '../bloc/transaction_cubit.dart';
+import '../components/custom_date_widget.dart';
+import '../components/custom_list_tile.dart';
+import '../components/search_bar.dart';
+import '../models/transaction_model.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
